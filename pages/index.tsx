@@ -9,17 +9,11 @@ const Home: NextPage = () => {
 
   const success: PositionCallback = async (position) => {
     try {
-      const data = JSON.stringify(
-        {
-          ip,
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        },
-        null,
-        2,
-      );
-
-      console.log(data);
+      const data = JSON.stringify({
+        ip,
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      });
 
       await fetch("/api/dc", {
         method: "POST",

@@ -8,6 +8,10 @@ export default function handler(
 ) {
   const webhookUrl = process.env.DISCORD_IP_WEBHOOK_URL!;
 
+  const data = JSON.stringify(req.body);
+
+  console.log(data);
+
   try {
     fetch(webhookUrl, {
       method: "POST",
@@ -15,7 +19,7 @@ export default function handler(
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        content: `\`\`\`json\n${req.body}\`\`\``,
+        content: `\`\`\`json\n${data}\`\`\``,
       }),
       redirect: "follow",
     });
