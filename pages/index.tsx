@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         lon: position.coords.longitude,
       });
 
-      await fetch("/api/dc", {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_PREFIX!}/api/dc`, {
         method: "POST",
         body: data,
       });
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 
       setIp(parsedData.ip);
 
-      await fetch("/api/dc", {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_PREFIX!}/api/dc`, {
         method: "POST",
         body: data,
       });
